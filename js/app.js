@@ -1,27 +1,27 @@
 // INCOME BLOCK
 function getTotalIncome() {
-    //get Total Income
-    if (typeof inputIncome.value === 'string' || inputIncome.value < 0) {
+    const totalIncome = parseFloat(document.getElementById('inputIncome').value);
+    if (isNaN(totalIncome) || totalIncome <= 0) {
         alert('input is not a number or negative. please provide valid input');
-    } else {
-        const totalIncome = parseFloat(document.getElementById('inputIncome').value);
-        return totalIncome;
+        return false;
     }
+    return totalIncome;
 };
 
 // EXPENSES BLOCK
 function getTotalExpense() {
-    //get Total Expense
-    let input = inputFood.value || inputRent.value || inputCloth.value;
-    if (typeof input === 'string' || input < 0) {
+    const foodExpense = parseFloat(document.getElementById('inputFood').value);
+    const rentExpense = parseFloat(document.getElementById('inputRent').value);
+    const clothExpense = parseFloat(document.getElementById('inputCloth').value);
+
+    if ((isNaN(foodExpense) || foodExpense <= 0) || (isNaN(rentExpense) || rentExpense <= 0) || (isNaN(clothExpense) || clothExpense <= 0)) {
         alert('input is not a number or negative. please provide valid input');
-    } else {
-        const foodExpense = parseFloat(document.getElementById('inputFood').value);
-        const rentExpense = parseFloat(document.getElementById('inputRent').value);
-        const clothExpense = parseFloat(document.getElementById('inputCloth').value);
-        const totalExpense = foodExpense + rentExpense + clothExpense;
-        return totalExpense;
+        return false;
     }
+
+    const totalExpense = foodExpense + rentExpense + clothExpense;
+
+    return totalExpense;
 };
 
 // TOTAL EXPENSES & BALANCE BLOCK
