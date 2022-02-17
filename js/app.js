@@ -1,10 +1,12 @@
 // INCOME BLOCK
 function getTotalIncome() {
     const totalIncome = parseFloat(document.getElementById('inputIncome').value);
+    //error handling
     if (isNaN(totalIncome) || totalIncome <= 0) {
         alert('input is not a number or negative. please provide valid input');
         return false;
     }
+    //get total income
     return totalIncome;
 };
 
@@ -13,12 +15,12 @@ function getTotalExpense() {
     const foodExpense = parseFloat(document.getElementById('inputFood').value);
     const rentExpense = parseFloat(document.getElementById('inputRent').value);
     const clothExpense = parseFloat(document.getElementById('inputCloth').value);
-
+    //error handling
     if ((isNaN(foodExpense) || foodExpense <= 0) || (isNaN(rentExpense) || rentExpense <= 0) || (isNaN(clothExpense) || clothExpense <= 0)) {
         alert('input is not a number or negative. please provide valid input');
         return false;
     }
-
+    //get total expense
     const totalExpense = foodExpense + rentExpense + clothExpense;
 
     return totalExpense;
@@ -29,7 +31,7 @@ const calculateTotal = document.getElementById('buttonCalc').addEventListener('c
     //show Total Expense
     let showTotalExpense = document.getElementById('totalExpense');
     showTotalExpense.innerText = getTotalExpense();
-    //get total balance
+    //get total balance and error handling
     if (showTotalExpense.innerText > getTotalIncome()) {
         alert('you have exceeded your income');
     } {
@@ -46,7 +48,7 @@ const save = document.getElementById('buttonSave').addEventListener('click', fun
     const savingAmount = document.getElementById('savingAmount');
     const totalSaving = getTotalIncome() * parseFloat(percentSave) / 100;
     savingAmount.innerText = totalSaving;
-    //get remaining balanc
+    //get remaining balance and error handling
     const balance = document.getElementById('balance').innerText;
     if (balance < totalSaving) {
         alert('you dont have sufficient balance');
