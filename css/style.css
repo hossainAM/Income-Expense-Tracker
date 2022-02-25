@@ -29,6 +29,10 @@ main h1 {
     background-color: #F8F8F8;
 }
 
+small {
+    display: block;
+}
+
 .btn-calc {
     position: relative;
     left: 12rem;

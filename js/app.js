@@ -1,4 +1,5 @@
-// INCOME BLOCK
+//INCOME BLOCK
+
 function getTotalIncome() {
     const totalIncome = parseFloat(document.getElementById('inputIncome').value);
     //error handling
@@ -34,6 +35,7 @@ const calculateTotal = document.getElementById('buttonCalc').addEventListener('c
     //get total balance and error handling
     if (showTotalExpense.innerText > getTotalIncome()) {
         alert('you have exceeded your income');
+        return false;
     } {
         const balance = getTotalIncome() - getTotalExpense();
         const showBalance = document.getElementById('balance');
@@ -52,6 +54,7 @@ const save = document.getElementById('buttonSave').addEventListener('click', fun
     const balance = document.getElementById('balance').innerText;
     if (balance < totalSaving) {
         alert('you dont have sufficient balance');
+        return false;
     }
     const remainingBalance = document.getElementById('remainingBalance');
     const netBalance = parseFloat(balance) - parseFloat(totalSaving);
